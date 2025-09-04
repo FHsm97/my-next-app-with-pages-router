@@ -45,9 +45,16 @@ export const getServerSideProps:GetServerSideProps=async({params,req})=>{
 
 
     if (!res.ok) {
-        // if (res.status==404) {
-        //     return notFound(); 
-        // }
+        if (res.status==404) {
+            return {
+                // notFound:true
+                redirect:{
+                    destination:'/posts',
+                    permanent:false
+
+                }
+            } 
+        }
         throw new Error('somthing went wrong!')
         
     }
