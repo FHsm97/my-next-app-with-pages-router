@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/router";

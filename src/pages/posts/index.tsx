@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { NextPageWithLayout } from "../_app";
 import AuthLayout from "@/components/authLayout";
-import { GetServerSideProps } from "next";
+import {  GetStaticProps } from "next";
 import { Post } from "@/types/Post";
 
 
@@ -9,7 +9,7 @@ const PostPage: NextPageWithLayout<{ posts: Post[] }> = ({ posts }: { posts: Pos
     return (
         <>
             <div>{
-                posts?.map((post: any) => (
+                posts?.map((post:Post) => (
                     <div key={post?.id}>
                         <Link href={`/posts/${post?.id}`}>
                             <h2>title:{post?.title}</h2>
@@ -18,7 +18,7 @@ const PostPage: NextPageWithLayout<{ posts: Post[] }> = ({ posts }: { posts: Pos
                         <hr />
                     </div>))
             }</div>
-            
+
             <Link href='/'>
                 Back To Home
             </Link>
@@ -35,15 +35,15 @@ PostPage.getLayout = (page) => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ }) => {
+export const getStaticProps: GetStaticProps = async ({ }) => {
 
-    let res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
 
     if (!res.ok) {
         throw new Error('somthing went wrong!')
     }
 
-    let posts = await res.json();
+    const posts = await res.json();
 
 
     return {
