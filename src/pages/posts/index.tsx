@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { NextPageWithLayout } from "../_app";
+import AuthLayout from "@/components/authLayout";
 
 
-export default function PostListPage() {
+const PostPage:NextPageWithLayout=()=>{
     return (
         <>
             <h1>Post List</h1>
@@ -12,3 +14,13 @@ export default function PostListPage() {
         </>
     )
 }
+
+PostPage.getLayout=(page)=>{
+    return(
+        <AuthLayout>
+            {page}
+        </AuthLayout>
+    )
+}
+
+export default PostPage;

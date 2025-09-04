@@ -8,7 +8,7 @@ export default function AuthLayout({children}:{children:ReactNode}) {
 
     return(
         <div>
-            user: hi
+            <span>user :::::</span>
             <h2>{children}</h2>
         </div>
     )
