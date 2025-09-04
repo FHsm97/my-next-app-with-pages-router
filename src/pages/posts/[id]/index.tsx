@@ -1,3 +1,4 @@
+import { Post } from "@/types/Post";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router"
@@ -10,12 +11,7 @@ import { useRouter } from "next/router"
 //     )
 // }   return undefined
 
-type Post={
-    id:number
-    userId:number
-    title:string
-    body:string
-}
+
 
 export default function PostSinglePage({post}:{post:Post}) {
 
