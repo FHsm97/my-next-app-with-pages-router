@@ -1,3 +1,4 @@
+import PostComment from "@/components/postComments";
 import { Post } from "@/types/Post";
 import {  GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
@@ -25,6 +26,8 @@ export default function PostSinglePage({ post }: { post: Post }) {
     return (
         <>
             <h1>Post :{post.title}</h1>
+            <hr />
+            <PostComment postId={post?.id}/>
 
             <Link href='/posts'>Back To Post List</Link>
 
